@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Outlet, useLocation } from 'react-router-dom';
+
 import { fetchInfoAboutFilm } from 'API/moviesAPI';
 import Movie from '../components/Movie/Movie';
 import {
@@ -15,7 +16,7 @@ const MovieDetails = () => {
   const { movieId } = useParams();
 
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/';
+  const backLinkHref = location.state?.from ?? '/movies';
 
   useEffect(() => {
     const getTrendFilms = async () => {
@@ -31,8 +32,12 @@ const MovieDetails = () => {
       <LinkGoHomeStyled to={backLinkHref}>Go back</LinkGoHomeStyled>
       {<Movie movie={movie} />}
       <LinksStyled>
-        <LinkCastStyled to={`cast`}>Cast</LinkCastStyled>
-        <LinkReviewsStyled to={`reviews`}>Reviews</LinkReviewsStyled>
+        <LinkCastStyled to={`cast`} state={{ from: backLinkHref }}>
+          Cast
+        </LinkCastStyled>
+        <LinkReviewsStyled to={`reviews`} state={{ from: backLinkHref }}>
+          Reviews
+        </LinkReviewsStyled>
       </LinksStyled>
       <Outlet />
     </>

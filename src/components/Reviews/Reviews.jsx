@@ -17,7 +17,8 @@ const Reviews = () => {
   }, [movieId]);
 
   if (!reviews) return null;
-  return (
+
+  return reviews.length !== 0 ? (
     <ReviewsListStyled>
       {reviews.map(el => (
         <li key={el.id}>
@@ -36,6 +37,8 @@ const Reviews = () => {
         </li>
       ))}
     </ReviewsListStyled>
+  ) : (
+    <div>Not found</div>
   );
 };
 
