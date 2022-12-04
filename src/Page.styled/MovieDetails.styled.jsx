@@ -1,10 +1,20 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 export const LinkCastStyled = styled(NavLink)`
   &.active {
     background-color: blue;
   }
+`;
+export const LinkGoHomeStyled = styled(Link)`
+  display: block;
+  padding: 5px;
+  background-color: #978a85;
+  width: 80px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 5px;
 `;
 
 export const LinkReviewsStyled = styled(NavLink)`

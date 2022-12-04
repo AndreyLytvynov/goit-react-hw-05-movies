@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
+
 import { FormStyled } from './SearchBar.styled';
 
 const SearchBar = ({ submitSearchForm }) => {
@@ -10,6 +13,10 @@ const SearchBar = ({ submitSearchForm }) => {
 
   const submitForm = e => {
     e.preventDefault();
+    if (text.trim() === '') {
+      toast('Please enter films name');
+      return;
+    }
     submitSearchForm(text);
   };
 
@@ -24,3 +31,7 @@ const SearchBar = ({ submitSearchForm }) => {
 };
 
 export default SearchBar;
+
+SearchBar.ropTypes = {
+  submitSearchForm: PropTypes.func.isRequired,
+};

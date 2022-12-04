@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Outlet } from 'react-router-dom';
+import { useParams, Outlet, useLocation } from 'react-router-dom';
 import { fetchInfoAboutFilm } from 'API/moviesAPI';
 import Movie from '../components/Movie/Movie';
 import {
   LinksStyled,
   LinkCastStyled,
   LinkReviewsStyled,
+  LinkGoHomeStyled,
 } from 'Page.styled/MovieDetails.styled';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
 
   const { movieId } = useParams();
+
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
 
   useEffect(() => {
     const getTrendFilms = async () => {
@@ -24,6 +28,7 @@ const MovieDetails = () => {
   if (!movie) return null;
   return (
     <>
+      <LinkGoHomeStyled to={backLinkHref}>Go back</LinkGoHomeStyled>
       {<Movie movie={movie} />}
       <LinksStyled>
         <LinkCastStyled to={`cast`}>Cast</LinkCastStyled>

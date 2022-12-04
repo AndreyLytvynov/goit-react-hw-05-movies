@@ -5,19 +5,17 @@ import { FcFilmReel } from 'react-icons/fc';
 
 // FcFilm;
 
-export const SharedLayout = () => {
+const SharedLayout = () => {
   return (
     <Container>
       <Header>
         <Logo>
-          <Link to="/" end>
+          <Link to="/">
             <FcFilmReel size={30} />
           </Link>
         </Logo>
         <nav>
-          <LinkStyled to="/" end>
-            Home
-          </LinkStyled>
+          <LinkStyled to="/">Home</LinkStyled>
           <LinkStyled to="/movies">Movies</LinkStyled>
         </nav>
       </Header>
@@ -25,3 +23,5 @@ export const SharedLayout = () => {
     </Container>
   );
 };
+
+export default SharedLayout;

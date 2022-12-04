@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchCreditsFilm } from '../../API/moviesAPI';
 import { CoastListStyled } from './Cast.styled';
+
 const Cast = () => {
   const [cast, setCast] = useState(null);
 
@@ -19,7 +20,6 @@ const Cast = () => {
   return (
     <CoastListStyled>
       {cast.map(el => {
-        console.log(el);
         return (
           <li key={el.id}>
             <img

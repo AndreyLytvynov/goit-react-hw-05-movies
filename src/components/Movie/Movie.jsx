@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { MovieStyled } from './Movie.styled';
 
 const Movie = ({ movie }) => {
@@ -28,3 +30,7 @@ const Movie = ({ movie }) => {
 };
 
 export default Movie;
+
+Movie.ropTypes = {
+  submitSearchForm: PropTypes.array.isRequired,
+};
